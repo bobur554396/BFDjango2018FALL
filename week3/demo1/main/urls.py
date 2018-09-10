@@ -7,4 +7,5 @@ urlpatterns = [
     path('time/', views.current_time),
     re_path(r'^time/plus/(\d{1,2})/$', views.hour_ahead),
     path('time/plus/1/', views.current_time),
+    path('about/', views.about),
 ]

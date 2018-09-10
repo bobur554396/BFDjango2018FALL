@@ -5,11 +5,30 @@ import datetime
 
 def index(request):
     name = "Test name"
-    return render(request, 'index.html', {'name': name})
+    students = [{'id': i, 'name': 'Student {}'.format(i)} for i in range(0, 5)]
+    context = {
+        'name': name,
+        'dd': datetime.datetime.now(),
+        'student':
+            {
+                'id': 1,
+                'name': 'Student 1',
+
+            },
+        'is_weekend': False,
+        'numbers': [i for i in range(0, 10)],
+        'students': students
+    }
+
+    return render(request, 'index.html', context)
 
 
 def hello(request):
     return HttpResponse("hello")
+
+
+def about(request):
+    return render(request, 'about.html')
 
 
 def current_time(request):
