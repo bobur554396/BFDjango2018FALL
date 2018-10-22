@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <a href="{% url 'main2:student_create' %}">Add new Student</a>
+    <a class="btn btn-primary" href="{% url 'main2:student_create' %}">Add new Student</a>
 
     <h1>Student list</h1>
 
@@ -10,8 +10,8 @@
 
             <li class="list-group-item">
                 <div>
-                    <a href="{% url 'main2:student_detail' student.id %}">{{ student.name }}</a>
-                    <h4>{{ student.created_by }}</h4>
+                    <h4><a href="{% url 'main2:student_detail' student.id %}">{{ student.name }}</a></h4>
+                    <h5>Created by: {{ student.created_by }}</h5>
                 </div>
                 {% if user == student.created_by %}
                     <div class="actions text-right">

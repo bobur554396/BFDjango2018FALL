@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class StudentManager(models.Manager):
     def for_user(self, user):
         return self.filter(created_by=user)
-    
+
 
 class Student(models.Model):
     name = models.CharField(max_length=200)
@@ -15,7 +15,7 @@ class Student(models.Model):
     objects = StudentManager()
 
     def __str__(self):
-        return "{}: {}".format(self.id, self.name)
+        return self.name
 
     def get_absolute_url(self):
         return reverse_lazy('main2:student_list')
