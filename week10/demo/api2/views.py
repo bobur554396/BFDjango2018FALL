@@ -9,7 +9,7 @@ import json
 def students_list(request):
     if request.method == 'GET':
         students = Student.objects.all()
-        serializer = StudentSerializer(students, many=True)
+        serializer = StudentModelSerializer(students, many=True)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
         data = json.loads(request.body)

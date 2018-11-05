@@ -19,3 +19,11 @@ class Student(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('main2:student_list')
+
+
+class Comment(models.Model):
+    text = models.CharField(max_length=200)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='comments')
+
+    def __str__(self):
+        return self.text
